@@ -1,0 +1,4 @@
+version: "3"
+services:
+  rest_server_2:
+    build: ./
