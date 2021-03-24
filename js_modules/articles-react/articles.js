@@ -7,6 +7,7 @@ import ModalViewArticle from "./modal-view-article-component";
 import ArticlesAll from "./articles-component";
 import ModalEditArticle from "./modal-edit-article-component";
 import "@babel/polyfill";
+import { server } from "../requests";
 
 class Articles extends React.Component
 {
@@ -83,13 +84,13 @@ class Articles extends React.Component
         this.changePopupState('editOnePopup', bool);
     }
 
-    onDelete( id )
+    async onDelete( id )
     {
         if( id == undefined ){ return; }
         let articles =  [...this.state.articles];
 
-        console.log(articles);
-        
+        let result = await ArticleModel.remove( id );
+
         for(var i = 0; i < articles.length; i++){
             if( articles[i].Id == id ){
                 articles.splice(i, 1);
