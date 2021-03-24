@@ -32,7 +32,7 @@ class ModalAddArticle extends Modal
     render()
     {
         return <Modal 
-            title="Добавить статью"
+            title="Добавить продукт"
             open={this.props.open}
             onClose={ this.props.onClose }
             onOk={ () => { this.props.onOk(this.state) } } >
@@ -40,14 +40,14 @@ class ModalAddArticle extends Modal
                     <TextField
                         id="title"
                         variant="outlined"
-                        label="Заголовок"
+                        label="Модель"
                         onChange={ (e) => { this.onChangeTitle(e.target.value) } }
                         />
                     <hr/>
                     <TextField
                         id="content"
                         variant="outlined"
-                        label="Контент"
+                        label="Компания"
                         multiline
                         rowsMax={4}
                         onChange={ (e) => { this.onChangeContent(e.target.value) } }
