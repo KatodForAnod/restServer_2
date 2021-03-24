@@ -87,7 +87,15 @@ class Articles extends React.Component
     {
         if( id == undefined ){ return; }
         let articles =  [...this.state.articles];
-        articles.splice(id, 1);
+
+        console.log(articles);
+        
+        for(var i = 0; i < articles.length; i++){
+            if( articles[i].Id == id ){
+                articles.splice(i, 1);
+            }
+        }
+
         this.setState({articles});
     }
 
