@@ -2,6 +2,7 @@ package handler
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
@@ -86,6 +87,7 @@ func SendEditProduct(w http.ResponseWriter, r *http.Request) {
 
 // DeleteProduct ...
 func DeleteProduct(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("hello im here")
 	vars := mux.Vars(r)
 	idString := vars["id"]
 	idInt, _ := strconv.Atoi(idString)
