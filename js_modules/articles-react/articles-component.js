@@ -11,9 +11,8 @@ export default class extends React.Component
     render()
     {
         return this.props.articles.map( (item, i) => {
-            console.log(item, "1");
             return <Article 
-                    onDelete={ ()=> { this.props.onDelete(i) } } 
+                    onDelete={ ()=> { this.props.onDelete(item.Id) } } 
                     key={i} 
                     title={item.Model} 
                     body={item.Company} 
