@@ -197,7 +197,7 @@ class Articles extends React.Component
             {getEditOnePopup}
             <Typography variant="h3" component="h1">
                 Товары - { this.state.articles.length }
-                <Button onClick={ () => { this.changeAddPopupState(true); } } variant="outlined" color="primary" size="small">Добавить статью</Button>
+                <Button onClick={ () => { this.changeAddPopupState(true); } } variant="outlined" color="primary" size="small">Добавить продукт</Button>
                 <div>
                     <TextField
                         id="one_id"
