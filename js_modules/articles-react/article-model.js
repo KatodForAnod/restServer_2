@@ -15,6 +15,7 @@ function isEmpty(obj) {
 async function all()
 {
     let result = await server.get('posts');
+    console.log(result);
     return result.data;
 }
 
