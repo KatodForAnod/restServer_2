@@ -15,7 +15,6 @@ function isEmpty(obj) {
 async function all()
 {
     let result = await server.get('products');
-    console.log(result);
     return result.data;
 }
 
@@ -27,13 +26,13 @@ async function one(id)
 
 async function remove(id)
 {
-    let result = await server.delete(`posts/${id}`);
+    let result = await server.delete(`deleteProduct/${id}`);
     return isEmpty(result.data);
 }
 
 async function add( obj )
 {
-    let result = await server.post('posts', obj);
+    let result = await server.post('product', obj);
     return result.data;
 }
 

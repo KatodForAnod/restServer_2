@@ -14,7 +14,7 @@ class ModalViewArticle extends Modal
 
         return <div>
             <Modal 
-                title="Просмотр статьи"
+                title="Просмотр товара"
                 open={this.props.open}
                 onClose={ this.props.onClose } 
                 onOk={ this.props.onOk } >
