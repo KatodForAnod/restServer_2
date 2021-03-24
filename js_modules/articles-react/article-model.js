@@ -27,6 +27,8 @@ async function one(id)
 async function remove(id)
 {
     let result = await server.post(`deleteProduct/${id}`);
+    console.log(result);
+    
     return isEmpty(result.data);
 }
 
