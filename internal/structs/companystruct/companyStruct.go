@@ -1,8 +1,8 @@
 package companystruct
 
 type Company struct {
-	Name      string
-	Origin    string
-	Telephone int
-	Id        int
+	Name      string `json:"name"`
+	Origin    string `json:"origin"`
+	Telephone int    `json:"telephone"`
+	Id        int    `json:"id"`
 }

@@ -31,7 +31,7 @@ func main() {
 	mux.HandleFunc("/product", handler.CreateProduct).Methods("POST")
 	mux.HandleFunc("/editProduct/{id:[0-9]+}", handler.EditProduct).Methods("GET")
 	mux.HandleFunc("/editProduct/{id:[0-9]+}", handler.SendEditProduct).Methods("POST")
-	mux.HandleFunc("/deleteProduct/{id:[0-9]+}", handler.DeleteProduct).Methods("POST")
+	mux.HandleFunc("/deleteProduct/{id:[0-9]+}", handler.DeleteProduct)
 
 	http.Handle("/", mux)
 
