@@ -41,7 +41,7 @@ class Articles extends React.Component
         let articles =  state.articles;
 
 
-        console.log(result, "test");
+        console.log(result, articles);
         articles.unshift( { title: result.model, body: result.company } );
         state.popups.addPopup.isOpen = false;
         this.setState(state);
