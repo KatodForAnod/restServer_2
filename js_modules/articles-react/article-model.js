@@ -34,7 +34,7 @@ async function remove(id)
 async function add( obj )
 {
     let result = await server.post('product', obj);
-    return result.data;
+    return obj;
 }
 
 async function edit( id, obj )
