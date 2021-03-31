@@ -32,7 +32,6 @@ async function remove(id)
 
 async function add( obj )
 {
-    console.log(obj, 'obj');
     let result = await server.post('posts', obj);
     return result.data;
 }

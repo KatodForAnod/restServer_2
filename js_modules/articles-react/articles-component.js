@@ -14,8 +14,8 @@ export default class extends React.Component
             return <Article 
                     onDelete={ ()=> { this.props.onDelete(item.Id) } } 
                     key={i} 
-                    title={item.Model} 
-                    body={item.Company} 
+                    title={item.model} 
+                    body={item.company} 
                     openEditModal={ ()=> { this.props.openEditModal(i) } }
                     />
         } );
