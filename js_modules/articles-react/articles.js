@@ -118,7 +118,7 @@ class Articles extends React.Component
         return <ModalAddArticle 
             open={this.state.popups.addPopup.isOpen}
             onClose={ () => { this.changeAddPopupState(false) } } 
-            onOk = { (article) => { console.log(article, 'article'); this.onAdd(article) } }
+            onOk = { (article) => { this.onAdd(article) } }
             />
     }
 

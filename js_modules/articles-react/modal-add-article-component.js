@@ -9,22 +9,22 @@ class ModalAddArticle extends Modal
         super(obj);
 
         this.state = {
-            title: this.props.title,
-            body: this.props.content
+            model: this.props.title,
+            company: this.props.content
         }
     }
 
     onChangeTitle(title)
     {
         let state = {...this.state};
-        state.title = title;
+        state.model = title;
         this.setState(state);
     }
 
     onChangeContent(content)
     {
         let state = {...this.state};
-        state.body = content;
+        state.company = content;
         this.setState(state);
     }
 
