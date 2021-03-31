@@ -40,9 +40,7 @@ class Articles extends React.Component
         let state = {...this.state};
         let articles =  state.articles;
 
-
-        console.log(result, articles);
-        articles.unshift( { title: result.model, body: result.company } );
+        articles.unshift( result );
         state.popups.addPopup.isOpen = false;
         this.setState(state);
     }
