@@ -92,7 +92,7 @@ class Articles extends React.Component
         let result = await ArticleModel.remove( id );
 
         for(var i = 0; i < articles.length; i++){
-            if( articles[i].Id == id ){
+            if( articles[i].id == id ){
                 articles.splice(i, 1);
             }
         }
