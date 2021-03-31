@@ -9,7 +9,6 @@ import "@babel/polyfill"
 async function App()
 {
     let articles = await Article.all();
-    console.log(articles, 'articles');
     ReactDOM.render( <Articles articles={articles}/>, document.querySelector('.app'));
 }
 

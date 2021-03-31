@@ -12,8 +12,8 @@ export default class extends React.Component
     {
         return this.props.articles.map( (item, i) => {
             return <Article 
-                    onDelete={ ()=> { this.props.onDelete(item.Id) } } 
-                    key={i} 
+                    onDelete={ ()=> { this.props.onDelete(item.id) } } 
+                    key={i}
                     title={item.model} 
                     body={item.company} 
                     openEditModal={ ()=> { this.props.openEditModal(i) } }
