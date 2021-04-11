@@ -27,6 +27,10 @@ func main() {
 	mux.HandleFunc("/company", handler.CreateCompany).Methods("POST")
 	mux.HandleFunc("/company/{id:[0-9]+}", handler.DeleteCompany).Methods("POST")
 
+	mux.HandleFunc("/wasd", handler.SignIn)
+	mux.HandleFunc("/login", handler.HandleLogin)
+	mux.HandleFunc("/callback", handler.HandleCallBack)
+
 	mux.HandleFunc("/products", handler.GetAllProducts).Methods("GET")
 	mux.HandleFunc("/product", handler.CreateProduct).Methods("POST")
 	mux.HandleFunc("/editProduct/{id:[0-9]+}", handler.EditProduct).Methods("GET")

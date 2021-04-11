@@ -87,6 +87,13 @@ func SendEditProduct(w http.ResponseWriter, r *http.Request) {
 
 // DeleteProduct ...
 func DeleteProduct(w http.ResponseWriter, r *http.Request) {
+	token := r.Header.Get("X-Session-Token")
+	if token == "" {
+		log.Println("error")
+		http.Error(w, "Invalid operation", http.StatusUnauthorized)
+		return
+	}
+
 	fmt.Println("hello im here")
 	vars := mux.Vars(r)
 	idString := vars["id"]
