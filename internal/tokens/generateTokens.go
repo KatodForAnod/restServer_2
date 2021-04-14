@@ -15,7 +15,7 @@ type myClaims struct {
 }
 
 func GenerateToken(userID string) (string, error) {
-	token := jwt.NewWithClaims(jwt.SigningMethodES256, &myClaims{
+	token := jwt.NewWithClaims(jwt.SigningMethodHS256, &myClaims{
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(timeTokenAccess).Unix(),
 			IssuedAt:  time.Now().Unix(),
@@ -23,5 +23,5 @@ func GenerateToken(userID string) (string, error) {
 		userID,
 	})
 
-	return token.SigningString()
+	return token.SignedString([]byte("secretKey"))
 }
