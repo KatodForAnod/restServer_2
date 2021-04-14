@@ -42,7 +42,7 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./"))
 	mux.Handle("/main.js", http.StripPrefix("", fileServer))
 
-	log.Println("Запуск веб-сервера на http://127.0.0.1:8080")
+	log.Println("Запуск веб-сервера на http://127.0.0.1:8080/wasd")
 	errServe := http.ListenAndServe(":8080", nil)
 	log.Fatal(errServe)
 }

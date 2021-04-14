@@ -115,6 +115,7 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	err = sqlite.PostgreSQL.SaveChangeHistory(userID, idString)
 	if err != nil {
 		log.Println(err)
+		return
 	}
 }
 

@@ -12,11 +12,6 @@ import (
 	"restserver/internal/tokens"
 )
 
-type signInStruct struct {
-	Username string `json:"username"`
-	Password string `json:"password"`
-}
-
 var (
 	googleOauthConfig = &oauth2.Config{
 		ClientID:     os.Getenv("GOOGLE_CLIENT_ID"),
