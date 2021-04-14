@@ -2,7 +2,6 @@ package handler
 
 import (
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
@@ -10,6 +9,7 @@ import (
 	"restserver/internal/dbInterface"
 	"restserver/internal/sqlite"
 	"restserver/internal/structs/productstruct"
+	"restserver/internal/tokens"
 	"strconv"
 )
 
@@ -94,7 +94,13 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	fmt.Println("hello im here")
+	userID, err := tokens.ParseTokens(token)
+	if err != nil {
+		log.Println(err)
+		http.Error(w, "Invalid token", http.StatusUnauthorized)
+		return
+	}
+
 	vars := mux.Vars(r)
 	idString := vars["id"]
 	idInt, _ := strconv.Atoi(idString)
@@ -103,6 +109,12 @@ func DeleteProduct(w http.ResponseWriter, r *http.Request) {
 	if !successful {
 		log.Println("error")
 		http.Error(w, "Invalid operation", 500)
+		return
+	}
+
+	err = sqlite.PostgreSQL.SaveChangeHistory(userID, idString)
+	if err != nil {
+		log.Println(err)
 	}
 }
 
