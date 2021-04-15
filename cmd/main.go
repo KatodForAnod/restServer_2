@@ -31,6 +31,9 @@ func main() {
 	mux.HandleFunc("/login", handler.HandleLogin)
 	mux.HandleFunc("/callback", handler.HandleCallBack)
 
+	mux.HandleFunc("/vk", handler.AuthVk)
+	mux.HandleFunc("/me", handler.AuthVkCallback)
+
 	mux.HandleFunc("/products", handler.GetAllProducts).Methods("GET")
 	mux.HandleFunc("/product", handler.CreateProduct).Methods("POST")
 	mux.HandleFunc("/editProduct/{id:[0-9]+}", handler.EditProduct).Methods("GET")
@@ -42,7 +45,7 @@ func main() {
 	fileServer := http.FileServer(http.Dir("./"))
 	mux.Handle("/main.js", http.StripPrefix("", fileServer))
 
-	log.Println("Запуск веб-сервера на http://127.0.0.1:8080/wasd")
+	log.Println("Запуск веб-сервера на http://127.0.0.1:8080/vk")
 	errServe := http.ListenAndServe(":8080", nil)
 	log.Fatal(errServe)
 }

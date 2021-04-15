@@ -67,14 +67,6 @@ func HandleCallBack(w http.ResponseWriter, r *http.Request) {
 	}
 
 	fmt.Fprint(w, tokenStr)
-	/*content, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		fmt.Println("wrong!")
-		http.Redirect(w, r, "/", http.StatusTemporaryRedirect)
-		return
-	}
-
-	fmt.Fprint(w, string(content))*/
 }
 
 type idStruct struct {
