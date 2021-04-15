@@ -69,7 +69,10 @@ func AuthVkCallback(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "ooops", http.StatusInternalServerError)
 		return
 	}
-	fmt.Fprint(w, tokenStr)
+
+	c := &http.Cookie{Name: "X-Session-Token", Value: tokenStr}
+	http.SetCookie(w, c)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
 func getID(bytes []byte) (string, error) {

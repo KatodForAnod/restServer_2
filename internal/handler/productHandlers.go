@@ -87,14 +87,15 @@ func SendEditProduct(w http.ResponseWriter, r *http.Request) {
 
 // DeleteProduct ...
 func DeleteProduct(w http.ResponseWriter, r *http.Request) {
-	token := r.Header.Get("X-Session-Token")
-	if token == "" {
-		log.Println("error")
-		http.Error(w, "Invalid operation", http.StatusUnauthorized)
+	cookie := r.Cookies()
+
+	if len(cookie) < 2 {
+		log.Println("err")
+		http.Error(w, "Invalid token", http.StatusUnauthorized)
 		return
 	}
 
-	userID, err := tokens.ParseTokens(token)
+	userID, err := tokens.ParseTokens(cookie[1].Value)
 	if err != nil {
 		log.Println(err)
 		http.Error(w, "Invalid token", http.StatusUnauthorized)
