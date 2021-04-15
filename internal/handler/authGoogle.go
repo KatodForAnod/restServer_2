@@ -68,6 +68,7 @@ func HandleCallBack(w http.ResponseWriter, r *http.Request) {
 
 	c := &http.Cookie{Name: "X-Session-Token", Value: tokenStr}
 	http.SetCookie(w, c)
+	http.Redirect(w, r, "/", http.StatusMovedPermanently)
 }
 
 type idStruct struct {
