@@ -2,7 +2,7 @@ import axios from "axios";
 
 function makeRequest( route, args = {} )
 {
-    return fetch(`http://127.0.0.1:8080/${route}`, args).then( (response) => {
+    return fetch(`https://restserver22.herokuapp.com/${route}`, args).then( (response) => {
         
         if( response.status !== 200 && response.status !==201 ){
             throw new Error("Code isn't 200");
@@ -22,7 +22,7 @@ function makeRequest( route, args = {} )
 }
 
 let server = axios.create({
-    baseURL: "http://127.0.0.1:8080/"
+    baseURL: "https://restserver22.herokuapp.com/"
 })
 
 server.interceptors.request.use( request => {
